@@ -24,10 +24,13 @@ exports.coapRequest = function (req, res) {
       if (resCoap.code !== '2.05')
         console.log("Error while contacting CoAP service: %s", resCoap.code);
       resCoap.pipe(bl(function (err, data) {
-      	console.log(data);
       	if (method == 'GET') {
-      		var json = JSON.parse(data);
-        	response = json;
+        	try {
+				var json = JSON.parse(data);
+        		response = json;
+			} catch (e) {
+				response = data;
+			}
       	} else {
         	response = 'CoAP response code ' + resCoap.code;
       	}
