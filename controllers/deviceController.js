@@ -9,7 +9,7 @@ exports.index = function(req, res) {
 exports.coapRequest = function (req, res) {
   var method = req.body.method;
   var host = req.body.host;
-  var path = req.body.path;
+  var path = "/" + req.body.path;
   var query = req.body.query;
   coap
     .request({

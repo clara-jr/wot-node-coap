@@ -1,13 +1,54 @@
+@font-face {
+    font-family: Circular;
+    src: url(../fonts/CircularStd-Book.otf);
+}
+
+html,
 body {
-  	padding: 50px;
-  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	height: 100%;
+}
+
+body {
+  	font: 14px Circular,"Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
+  	font-weight: normal;
+  	display: -ms-flexbox;
+  	display: -webkit-box;
+  	-ms-flex-align: center;
+  	-ms-flex-pack: center;
+  	-webkit-box-align: center;
+  	align-items: center;
+  	-webkit-box-pack: center;
+  	justify-content: center;
+  	padding-top: 50px;
+  	padding-bottom: 300px;
+  	background-color: #f8f8f8;
+  	color: #333;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 60px;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-bottom: 30px;
+}
+
+label {
+	font-size: 16px;
+}
+
+.glyphicon {
+	padding-right: 10px;
 }
 
 .jumbotron {
 	margin-top: 20px;
 	padding: 20px 20px;
-	background: rgba(0,0,0,.08);
 	text-align: center;
+	/*background: rgba(0,0,0,.08);*/
+	background-color: #f8f8f8;
+	min-width: 300px;
 }
 
 .row {
