@@ -21,22 +21,25 @@ exports.coapRequest = function (req, res) {
     })
     .on('response', function (resCoap) {
       console.info('CoAP response code', resCoap.code);
-      if (resCoap.code !== '2.05')
+      if (resCoap.code !== '2.05') {
         console.log("Error while contacting CoAP service: %s", resCoap.code);
-      resCoap.pipe(bl(function (err, data) {
-      	if (method == 'GET') {
-        	try {
-				var json = JSON.parse(data);
-        		response = json;
-			} catch (e) {
-				response = data;
-			}
-      	} else {
-        	response = 'CoAP response code ' + resCoap.code;
-      	}
-        console.log('Response: ', response);
-        res.render('index', {data: response});
-      }));
+        res.render('index', {error: "Error while contacting CoAP service: " + resCoap.code});
+      } else {
+        resCoap.pipe(bl(function (err, data) {
+          if (method == 'GET') {
+            try {
+              var json = JSON.parse(data);
+              response = json;
+            } catch (e) {
+              response = data;
+            }
+          } else {
+            response = 'CoAP response code ' + resCoap.code;
+          }
+          console.log('Response: ', response);
+          res.render('index', {data: response});
+        }));
+      }
     })
     .end();
 };
