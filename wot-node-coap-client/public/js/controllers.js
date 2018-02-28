@@ -13,7 +13,7 @@ angular.module("module_name")
 	      $scope.error = data.error;
 	    } else {
 	      $scope.error = "";
-	      $scope.data = data.data;
+	      $scope.data = data.data.data ? String.fromCharCode.apply(String, data.data.data) : data.data;
 	    }
 	  });
     };
