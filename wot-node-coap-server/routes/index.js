@@ -3,8 +3,7 @@ var router = express.Router();
 
 var deviceController = require('../controllers/deviceController');
 
-router.route('/')  
-  .get(deviceController.index)
-  .post(deviceController.coapRequest);
+router.route('/:coaprequest')
+  .get(deviceController.coapRequest);
 
 module.exports = router;

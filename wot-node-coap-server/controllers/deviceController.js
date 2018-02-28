@@ -2,15 +2,12 @@ var coap = require('coap'),
     bl = require('bl');
 var response;
 
-exports.index = function(req, res) {
-    res.render('index');
-};
-
 exports.coapRequest = function (req, res) {
-  var method = req.body.method;
-  var host = req.body.host;
-  var path = "/" + req.body.path;
-  var query = req.body.query;
+  var coaprequest = req.params.coaprequest.split("_");
+  var method = coaprequest[0];
+  var host = coaprequest[1];
+  var path = "/" + coaprequest[2];
+  var query = coaprequest[3];
   coap
     .request({
       host: host,
@@ -23,7 +20,7 @@ exports.coapRequest = function (req, res) {
       console.info('CoAP response code', resCoap.code);
       if (resCoap.code !== '2.05') {
         console.log("Error while contacting CoAP service: %s", resCoap.code);
-        res.render('index', {error: "Error while contacting CoAP service: " + resCoap.code});
+        res.status(200).jsonp({error: "Error while contacting CoAP service: " + resCoap.code});
       } else {
         resCoap.pipe(bl(function (err, data) {
           if (method == 'GET') {
@@ -37,9 +34,9 @@ exports.coapRequest = function (req, res) {
             response = 'CoAP response code ' + resCoap.code;
           }
           console.log('Response: ', response);
-          res.render('index', {data: response});
+          res.status(200).jsonp({data: response});
         }));
       }
-    })
-    .end();
+  })
+  .end();
 };

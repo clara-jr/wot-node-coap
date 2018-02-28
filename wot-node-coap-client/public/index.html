@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="module_name">
   <head>
     <title>Bat-Coaper</title>
     <meta charset="utf-8">
@@ -8,12 +8,16 @@
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.7/angular-resource.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.7/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/controllers.js"></script>
   </head>
   <body>
-    <div class="jumbotron">
-      <%- body %>
+    <div class="jumbotron" ng-view>
     </div>
     <!-- /.jumbotron -->
   </body>

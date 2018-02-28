@@ -1,3 +1,2 @@
-node_modules
-.DS_Store
-npm-debug.log
+wot-node-coap-client/node_modules
+wot-node-coap-server/node_modules

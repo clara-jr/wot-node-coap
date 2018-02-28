@@ -1,0 +1,14 @@
+{
+  "name": "bat-pm-wot-node",
+  "version": "0.0.0",
+  "description": "A Web of Things client",
+  "private": true,
+  "engines": {
+    "node": "6.11.x",
+    "npm": "3.10.x"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1"
+  }
+}
