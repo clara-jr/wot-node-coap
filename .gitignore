@@ -1,2 +1,6 @@
+wot-react-native-coap-client/.expo/
+wot-react-native-coap-client/node_modules
+wot-react-native-coap-client/npm-debug.*
+wot-react-native-coap-client/assets
 wot-node-coap-client/node_modules
 wot-node-coap-server/node_modules

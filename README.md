@@ -15,6 +15,9 @@ npm install
 cd ..
 cd wot-node-coap-server
 npm install
+cd ..
+cd wot-react-native-coap-client
+npm install
 </pre>
 
 ### How to configure
@@ -32,4 +35,10 @@ node copper.js
 
 cd wot-node-coap-server
 node copper.js
+
+cd wot-react-native-coap-client
+exp start (*)
 </pre>
+
+(*) Use npm start to work in the host computer.
+Open Expo Client on your device. Use it to scan the QR code printed by exp start.
